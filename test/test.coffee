@@ -14,7 +14,7 @@ plugin      = require '..'
 describe 'metalsmith-archive', () ->
 
    beforeEach (done) ->
-      rimraf 'build', done
+      rimraf __dirname + '/build', done
    
    describe 'using default options', ()->
       
@@ -116,10 +116,8 @@ describe 'metalsmith-archive', () ->
             .build (err, files) ->
                should.not.exist(err)
                should.exist(files)
-               # console.log(files)
                should.exist files['tagged/one-two-three/index.html']
-               # should.exist files['tagged/one-two-three/index.html']
-               # files['tagged/one-two-three/index.html'].taggedPosts.length.should.equal 2
+               files['tagged/one-two-three/index.html'].taggedPosts.length.should.equal 2
                done()
    
    describe 'using explicit options', ()->
@@ -167,3 +165,7 @@ describe 'metalsmith-archive', () ->
                files['tagged/three/index.html' ].template.should.equal 'custom.hbs'
                files['tagged/four/index.html' ].template.should.equal 'custom.hbs'
                done()
+
+   afterEach (done) ->
+      rimraf __dirname + '/build', done
+   
