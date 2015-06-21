@@ -29,7 +29,7 @@ tags:
 
 
 ```javascript
-var archives = require('metalsmith-archives');
+var tags = require('metalsmith-tags');
 Metalsmith.use(tags());
 ```
 
@@ -37,9 +37,12 @@ This will pull all of the tag strings from your file metadata and generate a pag
 
 If the tag has spaces in the name, these will be replaced by hyphens.  So if the file contains:
 ```yaml
-tags: butterfly kisses
+tags: works on my machine, metalsmith
 ```
-the generated tag page will be called `tagged/butterfly-kisses/index.html`.
+the generated tag pages will be called:
+
+   - `tagged/works-on-my-machine/index.html`
+   - `tagged/metalsmith/index.html`
 
 On each tag page, the plugin will add a field named `taggedPosts` on the page containing all the posts with that tag.
 
@@ -75,7 +78,7 @@ Metalsmith.use(tags({
 Tests
 -----
    
-   $ npm test
+`$ npm test`
    
 Licence
 -------
