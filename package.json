@@ -2,6 +2,10 @@
   "name": "metalsmith-tags",
   "version": "1.0.0",
   "description": "Metalsmith plugin to generate tag pages based on file metadata.",
+  "repository": {
+     "type": "git",
+     "url": "git@github.com:sarahhenderson/metalsmith-tags.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "npm run build && mocha --compilers coffee:coffee-script/register -R spec --ui bdd",
